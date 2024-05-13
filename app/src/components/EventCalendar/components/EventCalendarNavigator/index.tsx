@@ -1,4 +1,3 @@
-import { PickerType } from "@/lib/date";
 import { localizedDayJs } from "@/lib/dayjs";
 import { LeftOutlined, RightOutlined } from "@ant-design/icons";
 import { Flex } from "antd";
@@ -6,6 +5,7 @@ import { ManipulateType } from "dayjs";
 import { NavigateAction } from "react-big-calendar";
 import { DatePickerWrapper } from "../../../DatePickerWrapper";
 import { EventCalendarButton } from "../EventCalendarButton";
+import { PickerType } from "@/lib/datePicker";
 
 type EventCalendarNavigatorProps = {
   onNavigate: (navigate: NavigateAction, date?: Date) => void;

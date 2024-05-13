@@ -1,20 +1,9 @@
-import { PickerType } from '@/lib/date';
 import { Col, Row } from 'antd';
 import { ToolbarProps, View } from 'react-big-calendar';
+import { EventCalendarFilter } from '../EventCalendarFilter';
 import { EventCalendarNavigator } from '../EventCalendarNavigator';
 import { EventCalendarViewChanger } from '../EventCalendarViewChanger';
-import { EventCalendarFilter } from '../EventCalendarFilter';
-
-const determinePickerType = (view: View): PickerType => {
-  switch (view) {
-    case 'day':
-      return 'date';
-    case 'week':
-      return 'week';
-    default:
-      return 'month';
-  }
-};
+import { determinePickerType } from '@/lib/datePicker';
 
 export const EventCalendarToolbar = ({ view, onView, onNavigate, date, views }: ToolbarProps) => {
   return (

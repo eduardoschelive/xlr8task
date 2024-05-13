@@ -1,3 +1,5 @@
+import { View } from "react-big-calendar";
+
 export type PickerType = 'week' | 'month' | 'date' | 'date-time';
 
 export const getPickerFormat = (picker: PickerType): [string, PickerType] => {
@@ -12,3 +14,15 @@ export const getPickerFormat = (picker: PickerType): [string, PickerType] => {
       return ['MMMM YYYY', 'month'];
   }
 }
+
+
+export const determinePickerType = (view: View): PickerType => {
+  switch (view) {
+    case 'day':
+      return 'date';
+    case 'week':
+      return 'week';
+    default:
+      return 'month';
+  }
+};
