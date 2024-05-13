@@ -1,7 +1,7 @@
 import { useTags } from "@/context/TagContext";
 import { useTasks } from "@/context/TaskContext";
 import { AutoComplete, Flex, Input, Select } from "antd";
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import { NavigateAction } from "react-big-calendar";
 
 type EventCalendarFilterProps = {
@@ -13,15 +13,15 @@ export const EventCalendarFilter = ({ onNavigate }: EventCalendarFilterProps) =>
   const { tags } = useTags();
   const [value, setValue] = useState<string>('');
 
-  const options = useMemo(() => filteredTasks?.map(task => ({
+  const options = filteredTasks?.map(task => ({
     label: task.title,
     value: task.uuid,
-  })), [filteredTasks]);
+  }));
 
-  const tagOptions = useMemo(() => tags?.map(tag => ({
+  const tagOptions = tags?.map(tag => ({
     label: tag.name,
     value: tag.uuid,
-  })), [tags]);
+  }));
 
 
   const resetValue = () => setValue('');

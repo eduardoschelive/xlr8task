@@ -32,7 +32,7 @@ export const EventComponent = ({ title, event }: EventComponentProps) => {
   )
 
   return (
-    <TaskEditModal onSave={editTask} onRemove={() => removeTask(event.uuid!)} task={event}>
+    <TaskEditModal onSave={editTask} onRemove={() => removeTask(event.uuid!)} task={event} formName={`task-edit-modal-${event.uuid}`}>
       <Popover content={popoverContent}>
         <div>{title}</div>
       </Popover>

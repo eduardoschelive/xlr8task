@@ -9,7 +9,9 @@ export const TaskContextProvider = ({ children }: PropsWithChildren) => {
 
   const filteredTasks = tasks?.filter(task => {
     if (!filterTags.length) return true;
-    return task.tags?.some(tag => filterTags.includes(tag));
+    const hasTags = task.tags?.some(tag => filterTags.includes(tag));
+
+    return hasTags
   })
 
   return (

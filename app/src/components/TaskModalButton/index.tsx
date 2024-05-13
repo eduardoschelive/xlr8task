@@ -8,7 +8,7 @@ export const TaskModalButton = () => {
   const { addTask } = useTasks()
 
   return (
-    <TaskEditModal onSave={addTask}>
+    <TaskEditModal onSave={addTask} formName="create-new-task">
       <FloatButton icon={<FileAddOutlined />} tooltip="Criar nova tarefa" />
     </TaskEditModal>
   )

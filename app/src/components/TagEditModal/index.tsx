@@ -17,7 +17,7 @@ export const TagEditModal = ({ onSave, tag, title, formName, children }: PropsWi
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   const { control, handleSubmit, reset } = useForm<Tag>({
-    defaultValues: tag,
+    values: tag,
     resolver: zodResolver(tagSchema),
   });
 
@@ -37,6 +37,7 @@ export const TagEditModal = ({ onSave, tag, title, formName, children }: PropsWi
   const handleSave = (data: Tag) => {
     onSave(data);
     hideModal();
+    reset();
   };
 
   const onFinished = handleSubmit((data) => handleSave(data))

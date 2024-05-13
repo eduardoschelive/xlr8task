@@ -13,16 +13,19 @@ type TaskEditScreenProps = {
   onRemove?(): void;
   task?: Task;
   children?: React.ReactNode;
+  formName: string;
 };
 
-export const TaskEditModal = ({ onSave, task, onRemove, children }: TaskEditScreenProps) => {
+export const TaskEditModal = ({ onSave, task, onRemove, children, formName }: TaskEditScreenProps) => {
 
   const [isModalVisible, setIsModalVisible] = useState(false);
+
+  const [ form ] = Form.useForm()
 
   const { tags } = useTags();
 
   const { control, handleSubmit, reset } = useForm<Task>({
-    defaultValues: task,
+    values: task,
     resolver: zodResolver(taskSchema),
   });
 
@@ -55,8 +58,9 @@ export const TaskEditModal = ({ onSave, task, onRemove, children }: TaskEditScre
         footer={null}
       >
         <Form
-          name="task-edit-form"
-          initialValues={task}
+          name={formName}
+          form={form}
+          preserve={false}
           layout="vertical"
           onFinish={handleSubmit(handleSave)}
         >
@@ -73,7 +77,7 @@ export const TaskEditModal = ({ onSave, task, onRemove, children }: TaskEditScre
             {(field) => <DatePickerWrapper onChange={field.onChange} date={field.value} picker="date-time" />}
           </FormField>
           <FormField name="tags" label="Tags" control={control}>
-            {(field) => <Select mode="tags" onChange={field.onChange} value={field.value} options={selectOptions} allowClear />}
+            {(field) => <Select mode="multiple" onChange={field.onChange} value={field.value} options={selectOptions} />}
           </FormField>
           <TaskEditModalActions onCancel={handleCancel} handleRemove={onRemove} />
         </Form>
