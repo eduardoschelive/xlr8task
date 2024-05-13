@@ -1,0 +1,22 @@
+.rbc-month-view {
+  height: 100vh;
+}
+
+.rbc-calendar {
+  min-height: 98vh;
+  min-width: 100%;
+}
+
+.rbc-header {
+  background-color: #f7f7f7;
+  font-size: 16px;
+  padding: 16px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 400;
+}
+
+.rbc-events-container {
+  width: 100%;
+}
