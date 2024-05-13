@@ -22,5 +22,5 @@ export const dateToString = (date: Date | undefined | null) => {
     return undefined
   }
 
-  return localizedDayJs(date).format('DD/MMMM/YYYY')
+  return localizedDayJs(date).format('HH:mm DD/MMMM/YYYY')
 }
